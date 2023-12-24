@@ -1,9 +1,10 @@
 const express = require('express');
+const morgan = require('morgan')
 const bodyParser = require('body-parser');
+require('dotenv').config();
 const multer = require('multer');
 const path = require('path');
 const mysql = require('mysql');
-const morgan = require('morgan')
 // require('dotenv').config()
 const cors = require('cors');
 const uuid = require('uuid');
