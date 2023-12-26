@@ -1,4 +1,4 @@
-# Use an official base image (you can choose an appropriate base image for your application)
+# Use an official base image (e.g., Node.js)
 FROM node:14
 
 # Set the working directory in the container
@@ -10,11 +10,15 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# Copy the rest of the application code to the working directory
+# Copy the entire project to the working directory
 COPY . .
 
-# Expose a port (if your application listens on a specific port)
+# Build the client (adjust the command as per your client build process)
+RUN cd client && npm install && npm run build
+
+# Expose a port (if needed)
 EXPOSE 3000
 
 # Define the command to run your application
 CMD ["npm", "start"]
+
