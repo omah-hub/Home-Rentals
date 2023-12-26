@@ -72,11 +72,23 @@ app.post('/', upload.single('image'), (req, res) => {
     console.log('Image Path:', imagePath);
 
     // Insert data into MySQL database
-    const sql = 'INSERT INTO properties (name, address, unit, city, state, room_type, price, description, image_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    const formData = {
+        name: 'Property Name',
+        address: 'Property Address',
+        unitNumber: 'Unit Number',
+        city: 'City Name',
+        state: 'State Name',
+        roomType: 'Room Type',
+        price: 'Property Price',
+        description: 'Property Description',
+        imagePath: 'path/to/image.jpg',
+    };
+
+    const sql = 'INSERT INTO properties (name, address, unitNumber, city, state, room_type, price, description, image_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
     const values = [
         formData.name,
         formData.address,
-        formData.unit,
+        formData.unitNumber,
         formData.selectedCity,
         formData.selectedState,
         formData.selectedRoom,
