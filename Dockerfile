@@ -13,12 +13,19 @@ RUN npm install
 # Copy the entire project to the working directory
 COPY . .
 
-# Build the client (adjust the command as per your client build process)
-RUN cd client && npm install && npm run build
+# Set the working directory to the 'client' folder
+WORKDIR /app/client
+
+# Build the client (modify this line based on your actual build command)
+RUN npm install && npm run build
+
+# Reset the working directory to the parent
+WORKDIR /app
 
 # Expose a port (if needed)
 EXPOSE 3000
 
 # Define the command to run your application
 CMD ["npm", "start"]
+
 
