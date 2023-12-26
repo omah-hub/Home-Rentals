@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Set the working directory to the 'client' folder
-WORKDIR /client
+WORKDIR /server
 
 # Build the client (modify this line based on your actual build command)
 RUN npm install && npm run build
