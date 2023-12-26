@@ -27,7 +27,7 @@ function submitForm() {
   var formData = new FormData(form);
 
   // Use fetch to send the form data to the server
-  fetch('', {   //something should be here
+  fetch('https://rental-server-m0k6.onrender.com', {   //something should be here
     method: 'POST',
     body: formData
   })
