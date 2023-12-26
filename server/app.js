@@ -84,7 +84,7 @@ app.post('/', upload.single('image'), (req, res) => {
         imagePath: 'path/to/image.jpg',
     };
 
-    const sql = 'INSERT INTO properties (name, address, unitNumber, city, state, room_type, price, description, image_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    const sql = 'INSERT INTO properties (name, address, unit, city, state, room_type, price, description, image_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
     const values = [
         formData.name,
         formData.address,
