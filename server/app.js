@@ -60,7 +60,7 @@ app.get('/', (req, res) => {
 });
 
 // Handle form submission
-app.post('/process_form', upload.single('image'), (req, res) => {
+app.post('https://rental-server-m0k6.onrender.com', upload.single('image'), (req, res) => {
     // Access form data using req.body
     const formData = req.body;
 
