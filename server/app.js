@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 const multer = require('multer');
 const path = require('path');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 // require('dotenv').config()
 const cors = require('cors');
 const uuid = require('uuid');
@@ -24,20 +24,21 @@ app.use(cors({
 
 // Set up MySQL connection
 
-const connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,
-});
+// const connection = mysql.createConnection({
+//     port: process.env.DB_PORT,
+//     host: process.env.DB_HOST,
+//     user: process.env.DB_USER,
+//     password: process.env.DB_PASSWORD,
+//     database: process.env.DB_DATABASE,
+// });
 
-connection.connect((err) => {
-    if (err) {
-        console.error('Error connecting to MySQL:', err);
-    } else {
-        console.log('Connected to MySQL');
-    }
-});
+// connection.connect((err) => {
+//     if (err) {
+//         console.error('Error connecting to MySQL:', err);
+//     } else {
+//         console.log('Connected to MySQL');
+//     }
+// });
 
 // Set up body-parser to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
