@@ -2,7 +2,7 @@
 FROM node:14
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /server
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Set the working directory to the 'client' folder
-WORKDIR /app/client
+WORKDIR /server/client
 
 # Build the client (modify this line based on your actual build command)
 RUN npm install && npm run build
