@@ -14,6 +14,14 @@ const db = require('./db');
 const app = express();
 const port = 3000;
 
+app.use(morgan('dev'))
+
+
+app.use(cors({
+    origin: ["http://127.0.0.1:5500"],
+    credentials: true
+}))
+
 // Set up MySQL connection
 
 const connection = mysql.createConnection({
@@ -58,6 +66,10 @@ app.post('/process_form', upload.single('image'), (req, res) => {
 
     // Access uploaded file information using req.file
     const imagePath = req.file ? req.file.path : null;
+
+    console.log('Received form submission:');
+    console.log('Form Data:', formData);
+    console.log('Image Path:', imagePath);
 
     // Insert data into MySQL database
     const sql = 'INSERT INTO properties (name, address, unit, city, state, room_type, price, description, image_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
