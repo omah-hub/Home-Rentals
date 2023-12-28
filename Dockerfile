@@ -1,31 +1,33 @@
-# Use an official base image (e.g., Node.js)
-FROM node:14
+# Use an official Node.js runtime as a parent image
+FROM node:16
 
-# Set the working directory in the container
+# Set the working directory to /app
 WORKDIR /homeRentals
 
 # Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+COPY package*.json ./homeRentals
 
-# Install dependencies
+# Install any needed packages specified in package.json
 RUN npm install
 
 # Copy the entire project to the working directory
 COPY . .
 
-# Set the working directory to the 'client' folder
-WORKDIR /server
-
 # Build the client (modify this line based on your actual build command)
+WORKDIR /homeRentals/
 RUN npm install && npm run build
 
-# Reset the working directory to the parent
-WORKDIR /app
+# Reset the working directory to the root of the project
+WORKDIR /homeRentals
 
-# Expose a port (if needed)
+# Expose port 3000 to the outside world
 EXPOSE 3000
 
-# Define the command to run your application
+# Define environment variable
+ENV NODE_ENV=production
+
+# Run npm start when the container launches
 CMD ["npm", "start"]
+
 
 
