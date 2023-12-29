@@ -20,37 +20,24 @@ app.use(cors({
 // Set up body-parser to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Set up multer to handle file uploads
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'uploads/');
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + path.extname(file.originalname));
-    },
-});
-
-const upload = multer({ storage: storage });
-
 // Serve HTML form
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Handle form submission
-app.post('/', upload.single('image'), (req, res) => {
+app.post('/', (req, res) => {
     // Access form data using req.body
     const formData = req.body;
 
-    // Access uploaded file information using req.file
-    const imagePath = req.file ? req.file.path : null;
+   
 
     console.log('Received form submission:');
     console.log('Form Data:', formData);
-    console.log('Image Path:', imagePath);
+    
 
     // Use the connection pool from db.js
-    db.query('INSERT INTO properties (name, address, unit, city, state, room_type, price, description, image_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+    db.query('INSERT INTO properties (name, address, unit, city, state, room_type, price, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
         [
             formData.name,
             formData.address,
@@ -60,7 +47,6 @@ app.post('/', upload.single('image'), (req, res) => {
             formData.selectedRoom,
             formData.price,
             formData.description,
-            imagePath,
         ],
         (error, results) => {
             if (error) {
