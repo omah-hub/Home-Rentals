@@ -2,12 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Rentals Agency Website</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="./scripts/form.js"></script>
   </head>
   <body>
     <section>
@@ -323,37 +325,37 @@ most desire.</pre>
         <h4 id="text7">Your property with us and be Confident that Your Room will be Filled Out!</h4>
         <div>
           <h4 id="title">Add A New Property</h4>
-          
-          <form class="form" action="/" method="post" enctype="multipart/form-data">
+          <!-- FORM -->
+          <form class="form" action="/add-property" method="POST" enctype="application/x-www-form-urlencoded">
             <div>
               <label for="name">Name<span style="color: red;">*</span></label>
-              <input type="text" placeholder="Enter Name" required>
+              <input type="text" name="username" placeholder="Enter Name" required>
             </div>
             <div>
               <label for="address">Address<span style="color: red;">*</span></label>
-              <input type="text" placeholder="Enter Adress" required>
+              <input type="text" name="address" placeholder="Enter Adress" required>
             </div>
             <div>
               <label for="unit">Unit Number<span style="color: red;">*</span></label>
-              <input type="text" placeholder="Enter Unit" required>
+              <input type="text" name="unitNumber" placeholder="Enter Unit" required>
             </div>
             <div>          
               <label>City<span style="color: red;">*</span>
                 <select name="selectedCity" required>
                   <option value="" disabled selected>Select a city</option>
-                  <option value="Star Wars">Abuja</option>
-                  <option value="The Godfather">Lagos</option>
-                  <option value="Goodfellas">porthacourt</option>
+                  <option value="Abuja">Abuja</option>
+                  <option value="Lagos">Lagos</option>
+                  <option value="Porthacourt">Porthacourt</option>
                 </select>
               </label>
             </div>
             <div>
               <label>State<span style="color: red;">*</span>
-                <select name="selectedstate" required>
+                <select name="selectedState" required>
                   <option value="" disabled selected>Select State</option>
-                  <option value="Star Wars">Fct</option>
-                  <option value="The Godfather">lagos</option>
-                  <option value="Goodfellas">Rivers</option>
+                  <option value="FCT">FCT</option>
+                  <option value="Lagos">Lagos</option>
+                  <option value="Rivers">Rivers</option>
                 </select>
               </label>
             </div>
@@ -361,25 +363,26 @@ most desire.</pre>
               <label>Room Type<span style="color: red;">*</span>
                 <select name="selectedRoom" required>
                   <option value="" disabled selected>Select Room</option>
-                  <option value="Star Wars">1 bedroom</option>
-                  <option value="The Godfather">2 bedroom</option>
-                  <option value="Goodfellas">3 bedroom</option>
+                  <option value="1 bedroom">1 bedroom</option>
+                  <option value="2 bedroom">2 bedroom</option>
+                  <option value="3 bedroom">3 bedroom</option>
                 </select>
               </label>
             </div>
             <div>
               <label for="price">Price<span style="color: red;">*</span></label>
-              <input type="number" placeholder="Enter Price" required>
+              <input type="number" name="price" placeholder="Enter Price" required>
             </div>
             
             <div style="grid-column: span 3 ;">
               <label for>Description<span style="color: red;">*</span></label>
-              <textarea placeholder="Enter Description" required></textarea> 
+              <textarea name="description" placeholder="Enter Description" required></textarea> 
             </div>  
-            <input type="submit" value="Add New Property" style="margin-left: 100%; margin-top: 30px; margin-bottom: 30px; background-color: #FA511E; padding-left: 90px;">
+            <button type="submit" style="margin-left: 100%; margin-top: 30px; margin-bottom: 30px; background-color: #FA511E; padding-left: 10px; width: 150px; height: 30px">Add Property</button>
             
 
           </form>
+          <!-- <script src="./scripts/form.js"></script> -->
             <!-- <label for="image">Upload Photo:</label>
             <input type="file" name="image" id="image" accept="image/*"></br>
            <input type="submit" value="Add New Property" style="margin-left: 100%; margin-top: 30px; margin-bottom: 30px; background-color: #FA511E; padding-left: 90px;">  Additional form fields if needed
@@ -482,7 +485,7 @@ a lacus fringilla finibus.</pre>
       });
     </script>
     <script>
-      const apiUrl = 'https://rental-server-m0k6.onrender.com';  // Update with your server's URL
+      // const apiUrl = 'https://rental-server-m0k6.onrender.com';  // Update with your server's URL
       
     </script>
     
