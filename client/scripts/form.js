@@ -21,7 +21,7 @@ form.addEventListener('submit', async (e) => {
         msg.innerText = 'All fields must be filled';
     } else {
         try {
-            const response = await fetch('/add-property', {
+            const response = await fetch(`${uri}/add-property`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
