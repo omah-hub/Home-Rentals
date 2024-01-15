@@ -35,11 +35,18 @@ app.use('/images', express.static(path.join(__dirname, '..', 'client', 'images')
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 
-app.use(cors({
-    origin: ["http://127.0.0.1:5500", "https://home-rental-25jp.onrender.com"],
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true
-}))
+// app.use(cors({
+//     origin: ["http://127.0.0.1:5500", "https://home-rental-25jp.onrender.com"],
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true
+// }))
+
+app.use(
+  cors({
+      origin: ["http://127.0.0.1:5500", "https://home-rental-25jp.onrender.com"],
+      credentials: true,
+  })
+)
 
 app.get("/properties", (req, res) => {
     const sql = "SELECT * FROM homerentals.property";
