@@ -61,7 +61,7 @@ app.get("/properties", (req, res) => {
 //     console.log(req.body)
 //     res.send('POST ')
 // })
-app.post('https://home-rental-25jp.onrender.com/add-property', async (req, res) => {
+app.post('/add-property', async (req, res) => {
     try {
       const { username, address, unitNumber, selectedCity, selectedState, selectedRoom, price, description } = req.body;
   
