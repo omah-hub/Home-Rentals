@@ -49,7 +49,7 @@ app.use(
 )
 
 app.get("/properties", (req, res) => {
-    const sql = "SELECT * FROM homerentals.property";
+    const sql = "SELECT * FROM mydata.property";
     db.query(sql, (err, data) => {
         if(err) return res.json("Error");
         return res.json(data);
@@ -68,7 +68,7 @@ app.post('/add-property', async (req, res) => {
   
   
       const [result] = await dbpool.execute(`
-        INSERT INTO homerentals.property
+        INSERT INTO mydata.property
         ( Name, Address, Unit_Number, City, State, Room_Type, Price, Description)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         `,[
