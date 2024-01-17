@@ -77,6 +77,7 @@ app.get("/properties", async (req, res) => {
 // })
 app.post('/properties', async (req, res) => {
     try {
+      console.log("Received POST request:", req.body);
       const { username, address, unitNumber, selectedCity, selectedState, selectedRoom, price, description } = req.body;
   
   

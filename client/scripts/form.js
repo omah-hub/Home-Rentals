@@ -1,4 +1,5 @@
-const uri = 'https://rental-server-m0k6.onrender.com'
+// const uri = 'https://rental-server-m0k6.onrender.com'
+const uri = 'http://localhost:3000'
 const details = document.querySelectorAll('input, select, textarea');  // Change '.form' to the actual class or ID of your form
 
 
@@ -24,7 +25,7 @@ const btn = document.querySelector('.submit')
 //         msg.innerText = 'All fields must be filled';
 //     } else {
 //         try {
-//             const response = await fetch(`${uri}/add-property`, {
+//             const response = await fetch(`${uri}/properties`, {
 //                 method: 'POST',
 //                 headers: {
 //                     'Content-Type': 'application/json',
