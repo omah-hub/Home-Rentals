@@ -56,7 +56,7 @@ app.get("/properties", async (req, res) => {
         message: 'property posted successfully',
       }
 
-      res.status(200).jsom(response)
+      res.status(200).json(response)
     } catch (error) {
       const response = {
         message: error.message,
