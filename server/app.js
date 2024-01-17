@@ -48,20 +48,34 @@ app.use(
   })
 )
 
-app.get("/properties", (req, res) => {
-    const sql = "SELECT * FROM mydata.property";
-    db.query(sql, (err, data) => {
-        if(err) return res.json("Error");
-        return res.json(data);
-    })
-})
+// app.get("/properties", (req, res) => {
+//     const sql = "SELECT * FROM mydata.property";
+//     dbpool.query(sql, (err, data) => {
+//         if(err) return res.json("Error");
+//         return res.json(data);
+//     })
+// })
+// Assuming `dbpool` is created using `mysql2` with promise support
+// For example: const dbpool = mysql.createPool({ /* your connection options */ }).promise();
+
+app.get("/properties", async (req, res) => {
+  try {
+      const sql = "SELECT * FROM mydata.property";
+      const [rows, fields] = await dbpool.query(sql);
+      res.json(rows);
+  } catch (error) {
+      console.error("Error fetching properties:", error.message);
+      res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 
 // app.post('/add-property', (req, res) => {
 //     console.log('Content-Type:', req.get('Content-Type'));
 //     console.log(req.body)
 //     res.send('POST ')
 // })
-app.post('/add-property', async (req, res) => {
+app.post('/properties', async (req, res) => {
     try {
       const { username, address, unitNumber, selectedCity, selectedState, selectedRoom, price, description } = req.body;
   
