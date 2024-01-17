@@ -8,6 +8,10 @@ const pool = mysql.createPool({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
+    ssl: {
+        // Enable SSL/TLS
+        rejectUnauthorized: false, // Set to true in production, false for testing
+      },
 }).promise(); // This makes the pool support promises
 
 // Attempt to connect to MySQL
