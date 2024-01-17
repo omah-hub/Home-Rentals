@@ -50,6 +50,7 @@ const btn = document.querySelector('.submit')
 
 btn.addEventListener('click', (e) => {
     e.preventDefault()
+    console.log("Button clicked")
     msg.innerText = ''
 
     if (!details[0].value || !details[1].value || !details[2].value || !details[3].value || !details[4].value || !details[5].value || !details[6].value || !details[7].value) {
@@ -71,7 +72,7 @@ btn.addEventListener('click', (e) => {
 })
 async function createProperty(data) {
     try {
-      
+        console.log("sending data:", data);
         const response = await fetch(`${uri}/properties`, {
             method: "POST",
             headers: {
