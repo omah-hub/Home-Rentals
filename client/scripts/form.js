@@ -1,5 +1,5 @@
-// const uri = 'https://rental-server-m0k6.onrender.com'
-const uri = 'http://localhost:3000'
+const uri = 'https://rental-server-m0k6.onrender.com'
+// const uri = 'http://localhost:3000'
 const details = document.querySelectorAll('input, select, textarea');  // Change '.form' to the actual class or ID of your form
 
 
